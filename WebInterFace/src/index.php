@@ -61,6 +61,7 @@
               <button style="border: none;"
                       id="login"
                       class="
+                      cursor-pointer
                       rounded-md 
                       font-semibold 
                       h-7 
@@ -165,67 +166,55 @@
     </div>
     <div id="model" 
          class="fixed 
+                invisible
                 top-0 
                 bottom-0 
                 left-0 
                 right-0
-                invisible" 
+                " 
          style="background-color: rgba(0, 0, 0, 0.6);
                 display: flex;
                 align-items: center;
                 justify-content: center;">
- <form 
- action="login.php" 
- id="login"
- class="h-4/5 w-1/3 bg-white p-8 animate-[wiggle_0.5s_ease_infinite]"
- style="box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);">
+       <div id="select"
+            class="relative 1/2 w-1/2 bg-white py-8 px-24 rounded-xl"
+          >
+          <img src="./assets/img/logobacsi.png"  class=" h-40 w-40 absolute -top-24 left-64 " alt="">
+           <button id="close" class="absolute -top-4 -right-4 h-12 w-12 rounded-full bg-white"
+           style="box-shadow: 0 6px 6px rgba(0, 0, 0, 0.8);">
+           <i class="fa-solid fa-xmark text-3xl font-extrabold text-yellow-400"></i>
+           </button>
+          <P class="text-xl font-semibold  text-center pt-8">Đăng nhập tài khoản để xem thông tin chi tiết của người dùng</P>
+        <div class="mx-16">
+        <button type="submit" 
+                  onclick="location.href='login_index.php'"
+                  class="h-12 
+                         w-full
+                         my-6 
+                         font-semibold
+                         rounded-3xl
+                       hover:bg-gradient-to-r from-green-300 to-green-500
+                       text-white"
+                       style="box-shadow:0 4px 0 #1a8b29d7;
+                          background-image: linear-gradient(
+                            83.47deg,
+                            #58cc02 9.02%,
+                            #23ac38 90.81%
+                        );">
+           ĐĂNG NHẬP
+          </button>
+          <button  class="rounded-3xl 
+                          h-12 
+                          w-full
+                          font-bold 
+                        hover:bg-red-400
+                        bg-red-700 "
+                    onclick="location.href='register_index.php'"
+                    style="box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);">TẠO MỘT TÀI KHOẢN MỚI</button>
 
-<div id="header">
-<ul class="flex mb-12 ">
- <li class="mx-2">Sign in with</li>
- <li class="mx-2"><button class="rounded-full h-8 w-8 bg-blue-900 text-white"><i class="fa-brands fa-facebook-f"></i></button></li>
- <li class="mx-2"><button class="rounded-full h-8 w-8 bg-blue-900 text-white"><i class="fa-brands fa-twitter"></i></button></li>
- <li class="mx-2"><button class="rounded-full h-8 w-8 bg-blue-900 text-white"><i class="fa-brands fa-instagram"></i></button></li>
-</ul>
-
+        </div>
 </div>
-<div id="conten">
-<input type="email" placeholder="Email address" class="w-full h-9 mb-6 border rounded-sm px-2"  >
-<input type="password" placeholder="Password" class="w-full h-9 mb-6 border rounded-sm px-2">
 </div>
-<div id="footer_1" class="grid grid-cols-2 gap-4">
-<div class="flex">
- <input type="checkbox" name="" id="">
- <p class="mx-2">Remember me</p>
-</div>
-<div>Forgot password?</div>
-</div>
-<div id="footer_2">
-<button type="submit" 
-       class="h-9 
-              w-32 
-              my-6 
-              font-semibold
-              rounded-sm
-              bg-blue-800
-              hover:bg-blue-600
-              text-white">
-   LOGIN
- </button>
-<P>Don't have an account? <a href="register_index.php" class="text-red-700">Register</a></P>
-<button  class="float-right
-               rounded-3xl 
-               h-8 
-               w-20 
-               font-semibold 
-               mt-16
-               hover:bg-red-400
-              bg-red-800 "
-        style="box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);">Close</button>
-</div>
-
-
-</form>
     </div>
     <script src="weather.js"></script>
     <script src="login.js"></script>

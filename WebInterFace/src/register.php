@@ -1,13 +1,13 @@
 <?php
 require './assets/db/connect.php';
 
-    if(!empty($_POST['firstname']) 
-    && !empty($_POST['lastname']) 
+    if(!empty($_POST['fullname']) 
+    && !empty($_POST['username']) 
     && !empty($_POST['password']) 
     && !empty($_POST['repassword']))
     {
-    	$firstname = $_POST['firstname'];
-    	$lastname = $_POST['lastname'];
+    	$fullname = $_POST['fullname'];
+    	$username = $_POST['username'];
         $password = $_POST['password'];
         $repassword = $_POST['repassword'];
         $birthday = $_POST['birthday'];
@@ -17,8 +17,8 @@ require './assets/db/connect.php';
         $telephone = $_POST['telephone'];
 
 	    $sql = "INSERT INTO register_user 
-        (firstname, 
-        lastname, 
+        (fullname, 
+        username, 
         password, 
         repassword, 
         birthday, 
@@ -27,8 +27,8 @@ require './assets/db/connect.php';
         gender, 
         telephone)
 		
-		VALUES ('".$firstname."', 
-        '".$lastname."', 
+		VALUES ('".$fullname."', 
+        '".$username."', 
         '".$password."', 
         '".$repassword."',
         '".$birthday."', 
@@ -38,7 +38,7 @@ require './assets/db/connect.php';
         '".$telephone."')";
 
 		if ($conn->query($sql) === TRUE) {
-		    echo "OK";
+		    
 		} else {
 		    echo "Error: " . $sql . "<br>" . $conn->error;
 		}

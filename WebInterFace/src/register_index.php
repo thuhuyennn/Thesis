@@ -55,19 +55,24 @@
             class="h-3/4 w-2/3 top-36 fixed grid grid-cols-3"
             style="left: 16%"
           >
-            <div class="bg-black h-full w-full">
-              <img
-                src="https://img.lovepik.com/element/40036/9469.png_860.png"
-                alt=""
-                class="h-full"
-              />
+            <div class=" h-full w-full p-6"
+                 style="background-color: rgba(0, 0, 0, 0.8);">
+              <p class="text-4xl font-normal text-white pt-16">Don't have an account?</p>
+              <p class="opacity-60 py-8">Register to access all the features of our services.Manage your business in one place. It's free</p>
+              <ul class="flex ">
+                <li class="h-6 w-6 mx-2 rounded-full"> <i class="fa-brands fa-facebook"></i></li>
+                <li class="h-6 w-6 mx-2 rounded-full"><i class="fa-brands fa-google"></i></li>
+                <li class="h-6 w-6 mx-2 rounded-full"><i class="fa-brands fa-linkedin"></i></li>
+                <li class="h-6 w-6 mx-2 rounded-full"><i class="fa-brands fa-github"></i></li>
+              </ul>
+
             </div>
             <div class="bg-gray-300 h-full w-full col-span-2">
               <div class="text-black p-6">
                 <div class="grid grid-cols-2 gap-4 mt-4">
                   <div>
                     <label for="Fname"
-                      >First Name <span class="text-red-600">*</span></label
+                      >FullName <span class="text-red-600">*</span></label
                     ><br />
                     <div class="flex">
                       <div
@@ -76,7 +81,7 @@
                         <i class="fa-solid fa-user"></i>
                       </div>
                       <input
-                        name="firstname"
+                        name="fullname"
                         type="text"
                         id="Fname"
                         placeholder=""
@@ -87,7 +92,7 @@
                   </div>
                   <div>
                     <label for="Lname"
-                      >Last Name <span class="text-red-600">*</span></label
+                      >UserName <span class="text-red-600">*</span></label
                     ><br />
                     <div class="flex">
                       <div
@@ -97,7 +102,7 @@
                       </div>
                       <input
                         type="text"
-                        name="lastname"
+                        name="username"
                         id="Lname"
                         placeholder=""
                         class="border w-full"

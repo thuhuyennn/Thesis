@@ -10,7 +10,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 if($conn -> connect_error){
     die("Fail connect:". $conn -> connect_error);
 }
-echo "ttt"
+header("location: login_index.php");
 
 
 
