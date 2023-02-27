@@ -38,11 +38,10 @@
 	//Sr No, Station, Status(OK, NM, WM, ACK) Date, Time
 	//1         A          NM                 12-5-18    12:15:00 am
 	// sql to create table
-	$sql = "CREATE TABLE logs (
+	$sql = "CREATE TABLE data_value (
 	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	Nhietdo VARCHAR(30),
-	doam VARCHAR(30),
-
+	heartbeat VARCHAR(30),
+	concentration VARCHAR(30),
 	`Date` DATE NULL,
 	`Time` TIME NULL, 
 	`TimeStamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -55,6 +54,4 @@
 	}
 
 	$conn->close();
-	
-	
 ?>

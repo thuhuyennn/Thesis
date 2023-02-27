@@ -49,17 +49,12 @@
 <div id="cards" class="cards">
 
 <?php 
-    $sql = "SELECT * FROM logs ORDER BY id DESC";
+    $sql = "SELECT * FROM data_value ORDER BY id DESC";
     if ($result=mysqli_query($conn,$sql))
     {
       // Fetch one and one row
       echo "<TABLE id='c4ytable'>";
-      echo "<TR>
-      <TH>Sr.No.</TH>
-      <TH>NHIET DO</TH>
-      <TH>DO AM</TH>
-      <TH>Time</TH>
-      </TR>";
+      echo "<TR><TH>Sr.No.</TH><TH>NHỊP TIM</TH><TH>NỒNG ĐỘ OXY</TH><TH>Date</TH><TH>Time</TH></TR>";
       while ($row=mysqli_fetch_row($result))
       {
         echo "<TR>";
@@ -67,7 +62,7 @@
         echo "<TD>".$row[1]."</TD>";
         echo "<TD>".$row[2]."</TD>";
         //echo "<TD>".$row[3]."</TD>";
-        //echo "<TD>".$row[4]."</TD>";
+        echo "<TD>".$row[4]."</TD>";
         echo "<TD>".$row[5]."</TD>";
         echo "</TR>";
       }

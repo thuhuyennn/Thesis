@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./assets/css/style.css
     ">
     <link href="./dist/output.css" rel="stylesheet" />
-    <title>IoT</title>
+    <title>Home</title>
   </head>
   <body>
     <div class="my-6 mx-32">

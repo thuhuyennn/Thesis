@@ -19,14 +19,14 @@
     //echo " Date:".$d."<BR>";
     $t = date("H:i:s");
 
-    if(!empty($_POST['nhietdo']) && !empty($_POST['doam']))
+    if(!empty($_POST['heartbeat']) && !empty($_POST['concentration']))
     {
-    	$nhietdo = $_POST['nhietdo'];
-    	$doam = $_POST['doam'];
+    	$heartbeat = $_POST['heartbeat'];
+    	$concentration = $_POST['concentration'];
 
-	    $sql = "INSERT INTO logs (nhietdo, doam, Date, Time)
+	    $sql = "INSERT INTO data_value (heartbeat, concentration, Date, Time)
 		
-		VALUES ('".$nhietdo."', '".$doam."', '".$d."', '".$t."')";
+		VALUES ('".$heartbeat."', '".$concentration."', '".$d."', '".$t."')";
 
 		if ($conn->query($sql) === TRUE) {
 		    echo "OK";
