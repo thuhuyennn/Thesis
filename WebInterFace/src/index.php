@@ -179,10 +179,10 @@
        <div id="select"
             class="relative 1/2 w-1/2 bg-white py-8 px-24 rounded-xl"
           >
-          <img src="./assets/img/logobacsi.png"  class=" h-40 w-40 absolute -top-24 left-64 " alt="">
+          <!-- <img src="./assets/img/logobacsi.png"  class=" h-40 w-40 absolute -top-24 left-64 " alt=""> -->
            <button id="close" class="absolute -top-4 -right-4 h-12 w-12 rounded-full bg-white"
            style="box-shadow: 0 6px 6px rgba(0, 0, 0, 0.8);">
-           <i class="fa-solid fa-xmark text-3xl font-extrabold text-yellow-400"></i>
+           <i class="fa-solid fa-xmark text-3xl font-extrabold text-black"></i>
            </button>
           <P class="text-xl font-semibold  text-center pt-8">Đăng nhập tài khoản để xem thông tin chi tiết của người dùng</P>
         <div class="mx-16">
@@ -192,18 +192,15 @@
                          w-full
                          my-6 
                          font-semibold
-                         rounded-3xl
-                       hover:bg-gradient-to-r from-green-300 to-green-500
+                         rounded-xl
+                       hover:bg-green-400
+                       bg-green-500
                        text-white"
-                       style="box-shadow:0 4px 0 #1a8b29d7;
-                          background-image: linear-gradient(
-                            83.47deg,
-                            #58cc02 9.02%,
-                            #23ac38 90.81%
-                        );">
+                       style="box-shadow:0 4px 5px rgba(0, 0, 0, 0.4); 
+                 ">
            ĐĂNG NHẬP
           </button>
-          <button  class="rounded-3xl 
+          <button  class="rounded-xl 
                           h-12 
                           w-full
                           font-bold 

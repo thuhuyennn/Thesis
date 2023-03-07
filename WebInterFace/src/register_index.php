@@ -49,7 +49,8 @@
             giá nhất ma bạn có thể tặng cho gia đình bạn va cả thế giời nay đó
             chính là sức khỏe của bản thân bạn
           </p>
-          <form
+          <form 
+          id="form-1"
             action="register.php"
             method="post"
             class="h-3/4 w-2/3 top-36 fixed grid grid-cols-3"
@@ -112,46 +113,31 @@
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4 mt-4">
-                  <div>
-                    <label for="Password"
-                      >Password <span class="text-red-600">*</span></label
-                    ><br />
+                  <div class="form-group">
+                    <label for="password">Password <span class="text-red-600">*</span></label><br />
                     <div class="flex">
-                      <div
-                        class="h-7 w-7 bg-white text-black text-md text-center"
-                      >
+                      <div class="h-7 w-7 bg-white text-black text-md text-center">
                         <i class="fa-solid fa-lock"></i>
                       </div>
-                      <input
-                        type="password"
-                        name="password"
-                        id="Password"
-                        placeholder=""
-                        class="border w-full"
-                        required
-                      />
+                      <input type="password" name="password" id="password" placeholder="" class="border w-full" required/>
                     </div>
+                    <span class="form-message"></span>
                   </div>
-                  <div>
-                    <label for="repass"
-                      >Re-Type Password
-                      <span class="text-red-600">*</span></label
-                    ><br />
+                  <div class="form-group">
+                    <label for="password_confirmation">Re-Type Password
+                      <span class="text-red-600">*</span></label><br />
                     <div class="flex">
-                      <div
-                        class="h-7 w-7 bg-white text-black text-md text-center"
-                      >
+                      <div class="h-7 w-7 bg-white text-black text-md text-center">
                         <i class="fa-solid fa-lock"></i>
                       </div>
-                      <input
-                        type="password"
+                      <input type="password"
                         name="repassword"
-                        id="repass"
+                        id="password_confirmation"
                         placeholder=""
                         class="border w-full"
-                        required
-                      />
+                        required/>
                     </div>
+                    <span class="form-message"></span>
                   </div>
                 </div>
                 <div>
@@ -272,5 +258,53 @@
         </div>
       </div>
     </div>
+
+    <script src="validate.js"></script>
+   <script>
+      // Select all elements with data-toggle="tooltips" in the document
+      $('[data-toggle="tooltip"]').tooltip();
+
+      // Select a specified element
+      // $('#myTooltip').tooltip();
+    
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mong muốn của chúng ta
+      Validator({
+        form: '#form-1',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+          Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
+          Validator.isEmail('#email'),
+          Validator.minLength('#password', 6),
+          Validator.isRequired('#password_confirmation'),
+          Validator.isConfirmed('#password_confirmation', function () {
+            return document.querySelector('#form-1 #password').value;
+          }, 'Mật khẩu nhập lại không chính xác')
+        ],
+        onSubmit: function (data) {
+          // Call API
+          console.log(data);
+        }
+      });
+
+
+      Validator({
+        form: '#form-2',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+          Validator.isEmail('#email'),
+          Validator.minLength('#password', 6),
+        ],
+        onSubmit: function (data) {
+          // Call API
+          console.log(data);
+        }
+      });
+    });
+
+  </script>
   </body>
 </html>
