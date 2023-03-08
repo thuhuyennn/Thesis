@@ -74,7 +74,7 @@ void loop() {
   String postData ="heartbeat=" + String(heartbeat) + "&concentration=" + String(concentration);
 
 
-  http.begin(wifiClient, "http://192.168.32.100/Thesis/WebInterFace/src/postdata.php");             //Specify request destination
+  http.begin(wifiClient, "http://192.168.32.104/Thesis/WebInterFace/src/postdata.php");             //Specify request destination
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");    //Specify content-type header
 
   int httpCode = http.POST(postData);   //Send the request
@@ -85,5 +85,5 @@ void loop() {
 
   http.end();  //Close connection
 
-  delay(1000);  //Post Data at every 5 seconds
+  delay(5000);  //Post Data at every 5 seconds
 }
