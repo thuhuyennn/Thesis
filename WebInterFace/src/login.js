@@ -1,3 +1,4 @@
+//file index
 const model = document.querySelector("#model");
 const login = document.querySelector("#login");
 const close = document.querySelector("#close");

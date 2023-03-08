@@ -1,7 +1,7 @@
 <?php
 //Creates new record as per request
     //Connect to database
-    print_r($_POST);
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -15,7 +15,9 @@
     }
 
     //Get current date and time
+
     date_default_timezone_set('Asia/Ho_Chi_Minh');
+
     $d = date("Y-m-d");
     //echo " Date:".$d."<BR>";
     $t = date("H:i:s");

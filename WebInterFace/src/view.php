@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="refresh" content="1">
-</head>
-<body>
-<style>
-#c4ytable {
+    <style>
+        #c4ytable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -27,51 +24,32 @@
     background-color: #00A8A9;
     color: white;
 }
-</style>
-
-<?php
-    //Connect to database and create table
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "data_sensor";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Database Connection failed: " . $conn->connect_error);
-        echo "<a href='install.php'>If first time running click here to install database</a>";
-    }
-?> 
-
-
-<div id="cards" class="cards">
-
-<?php 
-    $sql = "SELECT * FROM data_value ORDER BY id DESC";
-    if ($result=mysqli_query($conn,$sql))
-    {
-      // Fetch one and one row
-      echo "<TABLE id='c4ytable'>";
-      echo "<TR><TH>Sr.No.</TH><TH>NHỊP TIM</TH><TH>NỒNG ĐỘ OXY</TH><TH>Date</TH><TH>Time</TH></TR>";
-      while ($row=mysqli_fetch_row($result))
-      {
-        echo "<TR>";
-        echo "<TD>".$row[0]."</TD>";
-        echo "<TD>".$row[1]."</TD>";
-        echo "<TD>".$row[2]."</TD>";
-        //echo "<TD>".$row[3]."</TD>";
-        echo "<TD>".$row[4]."</TD>";
-        echo "<TD>".$row[5]."</TD>";
-        echo "</TR>";
-      }
-      echo "</TABLE>";
-      // Free result set
-      mysqli_free_result($result);
-    }
-
-    mysqli_close($conn);
-?>
+    </style>
+	<title>Dữ liệu thời tiết</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		setInterval(function(){
+			$("#data").load("get_data.php");
+		}, 1000);
+	});
+	</script>
+</head>
+<body>
+	<h1>Dữ liệu thời tiết</h1>
+	<table id='c4ytable'>
+		<thead>
+			<tr>
+				<th>STT</th>
+				<th>NHỊP TIM</th>
+                <th>NỒNG ĐỘ OXY</th>
+				<th>STATUS</th>
+                <th>TIME</th>
+			
+			</tr>
+		</thead>
+		<tbody id="data">
+		</tbody>
+	</table>
 </body>
 </html>

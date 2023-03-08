@@ -47,15 +47,19 @@
     birthday VARCHAR(255),
 	address VARCHAR(255),
     email VARCHAR(255),
+
 	telephone VARCHAR(255),
     gender enum('male', 'female'),
 	`Date` DATE NULL,
 	`Time` TIME NULL, 
+
 	`TimeStamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 	)";
 
 	if ($conn->query($sql) === TRUE) {
+
 	    echo "Table register_user created successfully";
+
 	} else {
 	    echo "Error creating table: " . $conn->error;
 	}
