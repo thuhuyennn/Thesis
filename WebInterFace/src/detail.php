@@ -227,14 +227,14 @@ foreach ($data as $row) {
 
   <!-- Tab content -->
   <div class="tab-content">
-    <div class="tab-pane active">
+    <div class="tab-pane active overflow-y-scroll h-96">
       <!-- <h2>Số liệu dạng bảng</h2> -->
       <?php 
     $sql = "SELECT * FROM data_value ORDER BY id DESC";
     if ($result=mysqli_query($conn,$sql))
     {
       // Fetch one and one row
-      echo "<TABLE id='c4ytable'>";
+      echo "<TABLE id='c4ytable' class=''>";
       echo "<TR >
                 <TH>Sr.No.</TH>
                 <TH>NHỊP TIM</TH>
