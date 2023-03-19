@@ -22,7 +22,7 @@
     //echo " Date:".$d."<BR>";
     $t = date("H:i:s");
 
-    if(!empty($_POST['heartbeat']) && !empty($_POST['concentration']))
+    if(($_POST['heartbeat']) != '1.99' && !empty($_POST['concentration']))
     {
     	$heartbeat = $_POST['heartbeat'];
     	$concentration = $_POST['concentration'];

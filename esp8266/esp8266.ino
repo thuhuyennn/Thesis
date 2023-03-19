@@ -85,5 +85,5 @@ void loop() {
 
   http.end();  //Close connection
 
-  delay(5000);  //Post Data at every 5 seconds
+  delay(500);  //Post Data at every 5 seconds
 }

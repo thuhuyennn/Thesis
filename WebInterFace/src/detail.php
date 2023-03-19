@@ -5,42 +5,7 @@ if(!isset($_SESSION['user'])){
 }
 
 ?>
-<?php
-    //Connect to database and create table
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "data_sensor";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Database Connection failed: " . $conn->connect_error);
-        echo "<a href='install.php'>If first time running click here to install database</a>";
-    }
-    $sql = "SELECT * FROM data_value ORDER BY id DESC";
-    $result=mysqli_query($conn,$sql);
-
-    // Lưu dữ liệu vào một mảng
-    $data = array();
-    while ($row = mysqli_fetch_assoc($result)) {
-           $data[] = $row;
-     } 
-     
-?>
-
-<!-- Tạo mảng cho dữ liệu  -->
-<?php
-$heartbeat = array();
-$concentration = array();
-$labels = array();
-foreach ($data as $row) {
-    $heartbeat[] = $row['heartbeat'];
-    $concentration[] = $row['concentration'];
-    $labels[] = $row['Time'];
-}
-?>
 
 
 <!DOCTYPE html>
@@ -229,160 +194,34 @@ foreach ($data as $row) {
   <div class="tab-content">
     <div class="tab-pane active overflow-y-scroll h-96">
       <!-- <h2>Số liệu dạng bảng</h2> -->
-      <?php 
-    $sql = "SELECT * FROM data_value ORDER BY id DESC";
-    if ($result=mysqli_query($conn,$sql))
-    {
-      // Fetch one and one row
-      echo "<TABLE id='c4ytable' class=''>";
-      echo "<TR >
-                <TH>Sr.No.</TH>
-                <TH>NHỊP TIM</TH>
-                <TH>NỒNG ĐỘ OXY</TH>
-                <TH>Status</TH>
-                <TH>Time</TH>
-            </TR>";
-      while ($row=mysqli_fetch_row($result))
-      {
+      <h1>Dữ liệu thời tiết</h1>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		setInterval(function(){
+			$("#data").load("get_data_chart.php");
+		}, 1000);
+	});
+	</script>
 
-   
-      
-        // Kiểm tra nhiệt độ và độ ẩm để hiển thị trạng thái
-        if ($row[1] <50 or $row[2] <50 or $row[1] >100 or $row[2] > 100) {
-          $status = "<p class='text-red-600 font-semibold'>Cảnh báo
-          <p/>";
-        } else {
-          $status = "<p class='text-blue-500 font-medium'>Bình thường
-          <p/>";
-        }
-      
-
-        //echo "<TD>".$row[3]."</TD>";
-    
-          echo "<TR>";
-          echo "<TD>".$row[0]."</TD>";
-          echo "<TD>".$row[1]."</TD>";
-          echo "<TD>".$row[2]."</TD>";
-          echo "<TD>".$status."</TD>";
-          echo "<TD>".$row[5]."</TD>";
-          echo "</TR>";
-      
-        
-
-      }
-      echo "</TABLE>";
-      // Free result set
-      mysqli_free_result($result);
-    }
-
-    mysqli_close($conn);
-?>
+	        <table id='c4ytable' >
+		      <thead>
+			      <tr>
+				    <th>STT</th>
+				    <th>NHỊP TIM</th>
+            <th>NỒNG ĐỘ OXY</th>
+				    <th>STATUS</th>
+            <th>TIME</th>
+			      </tr>
+		      </thead>
+		  <tbody id="data">
+		  </tbody>
+    	</table>
 
     </div>
     <div class="tab-pane">
       <!-- <h2>Biểu đồ</h2> -->
-      <canvas id="myChart"></canvas>
-      <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: <?php echo json_encode($labels); ?>,
-                datasets: [{
-                    label: 'Nhịp tim',
-                    data: <?php echo json_encode($heartbeat); ?>,
-                    backgroundColor: '#0000BB',
-                    borderColor: 'rgba(255,99,132,1)',
-                    borderWidth: 1
-                }, {
-                    label: 'Nồng độ Oxy trong máu',
-                    data: <?php echo json_encode($concentration); ?>,
-                    backgroundColor: '#BB0000',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                },
-                title: {
-                    display: true,
-                    text: 'data'
-                }
-            }
-        });
-    </script>
       
-      
-      
-      
-
-
-    </div>
-    <div class="tab-pane">
-      
-      <div class="relative py-4 card grid grid-cols-4 w-full bg-white h-24 rounded-md  text-center" style="box-shadow: 1px 2px 4px 3px rgba(220, 220, 220);">
-        <button id="open_card_popup" class="absolute -top-4 -right-4 h-8 w-8 rounded-full bg-white border border-green-400">
-          <i class="fa-solid fa-pen text-green-400"></i>
-        </button>
-        <div class="age border-r border-gray-300">
-          <p class="opacity-70">Tuổi</p> 
-          <p class="text-xl font-bold">20 Tuổi</p>
-        </div>
-        <div class="height border-r border-gray-300">
-          <p class="opacity-70">Chiều cao</p> 
-          <p class="text-xl font-bold">150 cm</p>
-        </div>
-        <div class="weight border-r border-gray-300">
-          <p class="opacity-70">Cân nặng</p> 
-          <p class="text-xl font-bold">45 kg</p>
-        </div>
-        <div class="activity">
-          <p class="opacity-70">Hoạt động</p> 
-          <p class="text-xl font-bold">Ít</p>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 gap-4 mt-10">
-        <div class="relative h-28 w-full border border-gray-300 rounded-lg grid grid-cols-3">
-          <div class="col-span-2 pl-6 pt-3">
-            <p>Chỉ số SpO2</p>
-            <p class="text-2xl font-medium">60</p>
-            <p class="text-blue-500">Bình thường</p>
-          </div>
-          <img class="h-20 w-20 absolute right-4 bottom-2" src="./assets/img/spo2.png" alt="">
-
-          
-        </div>
-        <div class="relative h-28 w-full border border-gray-300 rounded-lg grid grid-cols-3">
-        <div class="col-span-2 pl-6 pt-3">
-            <p>Chỉ số nhịp tim</p>
-            <p class="text-2xl font-medium">60</p>
-            <p class="text-blue-500">Bình thường</p>
-        </div>
-          <img class="h-20 w-20 absolute right-4 bottom-2" src="./assets/img/tim.jpg" alt="">
-        </div>
-        <div class=" relative h-28 w-full border border-gray-300 rounded-lg grid grid-cols-3">
-        <div class="col-span-2 pl-6 pt-3">
-            <p>Chỉ số huyết áp</p>
-            <p class="text-2xl font-medium">60</p>
-            <p class="text-blue-500">Bình thường</p>
-        </div>
-          <img class="h-20 w-20 absolute right-4 bottom-2" src="./assets/img/huyetap.jpg" alt="">
-        </div>
-        <div class=" relative h-28 w-full border border-gray-300 rounded-lg grid grid-cols-3">
-        <div class="col-span-2 pl-6 pt-3">
-            <p>Chỉ số MBI</p>
-            <p class="text-2xl font-medium">60</p>
-            <p class="text-blue-500">Bình thường</p>
-        </div>
-          <img class="h-20 w-20 absolute right-4 bottom-2" src="./assets/img/can.jpg" alt="">
-        </div>
-      </div>
 
       
     </div>
