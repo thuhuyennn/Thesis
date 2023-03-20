@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./assets/css/style.css
     ">
     <link href="./dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
     <title>detail</title>
     <style>
 
@@ -49,63 +50,9 @@
 }
 
 
-    
-.tabs .line {
-  background-color: #33CC66;
-  transition: all 0.2s ease;
-}
-.tab-item {
-  min-width: 80px;
-  padding: 16px 20px 11px 20px;
-  font-size: 18px;
-  text-align: center;
-  color: #33CC66;
-  background-color: #fff;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom: 5px solid transparent;
-  opacity: 0.4;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-.tab-icon {
-  font-size: 18px;
-  width: 32px;
-  position: relative;
-  top: 2px;
-}
-.tab-item:hover {
-  opacity: 1;
-  background-color: rgba(194, 53, 100, 0.05);
-  border-color: rgba(194, 53, 100, 0.1);
-}
-.tab-item.active {
-  opacity: 1;
-}
-.tab-content {
-  padding: 28px 0;
-}
-.tab-pane {
-  color: #333;
-  display: none;
-}
-.tab-pane.active {
-  display: block;
-}
-.tab-pane h2 {
-  font-size: 24px;
-  margin-bottom: 8px;
-}
-
     </style>
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
-	$(document).ready(function(){
-		setInterval(function(){
-			$("#data").load("get_data.php");
-		}, 1000);
-	});
-	</script>
+    	
+
     
 </head>
 <body>
@@ -161,73 +108,73 @@
     
     </div>
     <div class="col-span-3 border-b border-gray-200 ml-6 mr-40 ">
-        <p class=" py-6 font-bold text-3xl">Sức khỏe của tôi</p>
+    <p class=" py-6 font-bold text-3xl">Sức khỏe của tôi</p>
+      <!-- component -->
 
-  <!-- Tab items -->
-  <div class="tabs flex relative">
-    <div class="tab-item active">
-    <i class="tab-icon fa-solid fa-table"></i>
-      <a href="h.php">Số liệu bảng</a>
-    </div>
-    <div class="tab-item">
-    <i class="tab-icon fa-solid fa-chart-simple"></i>
-    <a href="chart.php">Biểu đồ</a>
-    </div>
-    <div class="tab-item">
-    <i class="tab-icon fa-solid fa-circle-info"></i>
+
+
+<!-- This is an example component -->
+<div class="max-w-2xl mx-auto">
     
+    <div class="border-b border-gray-200 dark:border-gray-700 mb-4">
+        <ul class="flex flex-wrap -mb-px" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+            <li class="mr-2" role="presentation">
+                <button class="inline-block text-gray-500 hover:text-gray-600 hover:border-gray-300 rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 dark:text-gray-400 dark:hover:text-gray-300" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block text-gray-500 hover:text-gray-600 hover:border-gray-300 rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 dark:text-gray-400 dark:hover:text-gray-300 active" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block text-gray-500 hover:text-gray-600 hover:border-gray-300 rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 dark:text-gray-400 dark:hover:text-gray-300" id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Settings</button>
+            </li>
+            <li role="presentation">
+                <button class="inline-block text-gray-500 hover:text-gray-600 hover:border-gray-300 rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 dark:text-gray-400 dark:hover:text-gray-300" id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">Contacts</button>
+            </li>
+        </ul>
+    </div>
+    <div id="myTabContent">
+        <div class="bg-gray-50 p-4 rounded-lg dark:bg-gray-800 hidden h-96 overflow-y-scroll" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		setInterval(function(){
+			$("#data").load("get_data_chart.php");
+		}, 1000);
+	});
+	</script>
 
-      Dữ liệu chi tiết
+	        <table id='c4ytable' >
+		      <thead>
+			      <tr>
+				    <th>STT</th>
+				    <th>NHỊP TIM</th>
+            <th>NỒNG ĐỘ OXY</th>
+				    <th>STATUS</th>
+            <th>TIME</th>
+			      </tr>
+		      </thead>
+		  <tbody id="data">
+		  </tbody>
+    	</table>
+            <!-- <p class="text-gray-500 dark:text-gray-400 text-sm">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p> -->
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg dark:bg-gray-800 h-40 overflow-y-scroll" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+            <p class="text-gray-500 dark:text-gray-400 text-sm">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhThis is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg dark:bg-gray-800 hidden" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+            <p class="text-gray-500 dark:text-gray-400 text-sm">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Settings tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg dark:bg-gray-800 hidden" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
+            <p class="text-gray-500 dark:text-gray-400 text-sm">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+        </div>
     </div>
 
-    <div class="tab-item">
-    <i class="tab-icon fa-solid fa-stethoscope"></i>
-      Chuẩn đoán
-    </div>
-    <div class="line absolute left-0 bottom-0 w-0 h-1"></div>
-  </div>
+    <!-- <p class="mt-5">This tabs component is part of a larger, open-source library of Tailwind CSS components. Learn more by going to the official <a class="text-blue-600 hover:underline" href="#" target="_blank">Flowbite Documentation</a>.</p> -->
+</div>
 
-  <!-- Tab content -->
-  <div class="tab-content">
-    <div class="tab-pane active">
-      <h2>Số liệu dạng bảng</h2>
+<script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
 
-	<table id='c4ytable'>
-		<thead>
-			<tr>
-				<th>STT</th>
-				<th>NHỊP TIM</th>
-                <th>NỒNG ĐỘ OXY</th>
-				<th>STATUS</th>
-                <th>TIME</th>
-			
-			</tr>
-		</thead>
-		<tbody id="data">
-		</tbody>
-	</table>
-      
-
-
-    </div>
-    <div class="tab-pane">
-      <h2>Biểu đồ</h2>
-      
- 
-      
-      
-      
-
-
-    </div>
-    <div class="tab-pane">
-      <h2>Dữ liệu chi tiết</h2>
-
-      
-    </div>
-    <div class="tab-pane">
-      <h2>Chuẩn đoán</h2>
-      <p>Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. </p>
     </div>
   </div>
 </div>
