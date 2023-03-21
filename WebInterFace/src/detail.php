@@ -4,9 +4,8 @@ if(!isset($_SESSION['user'])){
     header("location:login_index.php");
 }
 
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -194,8 +193,9 @@ if(!isset($_SESSION['user'])){
   <div class="tab-content">
     <div class="tab-pane active overflow-y-scroll h-96">
       <!-- <h2>Số liệu dạng bảng</h2> -->
-      <h1>Dữ liệu thời tiết</h1>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <title>Dữ liệu thời tiết</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
 		setInterval(function(){
@@ -203,32 +203,31 @@ if(!isset($_SESSION['user'])){
 		}, 1000);
 	});
 	</script>
-
-	        <table id='c4ytable' >
-		      <thead>
-			      <tr>
-				    <th>STT</th>
-				    <th>NHỊP TIM</th>
-            <th>NỒNG ĐỘ OXY</th>
-				    <th>STATUS</th>
-            <th>TIME</th>
-			      </tr>
-		      </thead>
-		  <tbody id="data">
-		  </tbody>
-    	</table>
-
+</head>
+<body>
+	<h1>Dữ liệu thời tiết</h1>
+	<div class="">
+	<table id='c4ytable' >
+		<thead>
+			<tr>
+				<th>STT</th>
+				<th>NHỊP TIM</th>
+                <th>NỒNG ĐỘ OXY</th>
+				<th>STATUS</th>
+        <th>USER</th>
+                <th>TIME</th>
+			
+			</tr>
+		</thead>
+		<tbody id="data">
+		</tbody>
+	</table>
+    
     </div>
-    <div class="tab-pane">
-      <!-- <h2>Biểu đồ</h2> -->
-      
 
-      
-    </div>
-    <div class="tab-pane">
-      <h2>Chuẩn đoán</h2>
-      <p>Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. </p>
-    </div>
+
+    
+
   </div>
 </div>
     </div>
@@ -302,38 +301,7 @@ function closeCarPopup() {
 
 
    
-   <script>
-    const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
 
-const tabs = $$(".tab-item");
-const panes = $$(".tab-pane");
-
-const tabActive = $(".tab-item.active");
-const line = $(".tabs .line");
-
-
-requestIdleCallback(function () {
-  line.style.left = tabActive.offsetLeft + "px";
-  line.style.width = tabActive.offsetWidth + "px";
-});
-
-tabs.forEach((tab, index) => {
-  const pane = panes[index];
-
-  tab.onclick = function () {
-    $(".tab-item.active").classList.remove("active");
-    $(".tab-pane.active").classList.remove("active");
-
-    line.style.left = this.offsetLeft + "px";
-    line.style.width = this.offsetWidth + "px";
-
-    this.classList.add("active");
-    pane.classList.add("active");
-  };
-});
-
-   </script>
 
     
 </body>

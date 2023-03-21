@@ -8,7 +8,7 @@ $dbname = "data_sensor";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Lấy dữ liệu từ database
-$sql = "SELECT * FROM data_value ORDER BY id DESC LIMIT 100";
+$sql = "SELECT * FROM data_value ORDER BY id DESC LIMIT 10";
 $result = mysqli_query($conn, $sql);
 
 

@@ -1,6 +1,8 @@
 
 
 <?php
+session_start();
+
 // Kết nối database
 $servername = "localhost";
 $username = "root";
@@ -8,9 +10,13 @@ $password = "";
 $dbname = "data_sensor";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
+$username = $_SESSION['user'];
 
 // Lấy dữ liệu từ database
-$sql = "SELECT * FROM data_value ORDER BY id DESC LIMIT 10";
+$sql = "SELECT * FROM data_value WHERE username_send = '$username' ORDER BY id DESC LIMIT 30 ";
+// $sql = "SELECT data.* FROM data
+//         INNER JOIN data_user ON data.usersend = data_user.username
+//         WHERE data_user.username = '$username'";
 $result = mysqli_query($conn, $sql);
 
 
@@ -18,6 +24,7 @@ $result = mysqli_query($conn, $sql);
 // Tạo bảng HTML
 $table = "";
 while($row = mysqli_fetch_assoc($result) ) {
+	
     $table .= "<tr>";
 
 		$table .= "<td>" . $row["id"] . "</td>";
@@ -29,6 +36,7 @@ while($row = mysqli_fetch_assoc($result) ) {
     
 
 		$table .= "<td>" . $row["concentration"] . "</td>";
+		
 	
 	
 		if($row["heartbeat"] < 50 or $row["concentration"] < 90 or $row["heartbeat"] > 100 or $row["concentration"] >100) {
@@ -36,6 +44,7 @@ while($row = mysqli_fetch_assoc($result) ) {
 		} else {
 			$table .= "<td class='text-blue-500 font-medium'>Bình thường</td>";
 		}
+		$table .= "<td>" . $row["username_send"] . "</td>";
 	
 
 	
