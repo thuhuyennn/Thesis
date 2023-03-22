@@ -13,10 +13,10 @@ $result = $conn->query($sql)->fetch_assoc();
 
 if($result['password'] == $password){
     $_SESSION['user'] = $username;
-    header("location: detail.php");
+    header("location: h.php");
 }
 else{
-    echo 'thất bại';
+    header("location: erro.php");
 }
 
 $conn->close();

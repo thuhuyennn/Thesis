@@ -52,7 +52,68 @@ setInterval(function(){updateChart()}, updateInterval);
 </body>
 </html> -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta charset="UTF-8" />
 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/assets/css/input.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/font/themify-icons-font/themify-icons/themify-icons.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css
+    ">
+    <link href="./dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
+    <title>detail</title>
+    <style>
+
+#c4ytable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#c4ytable td, #c4ytable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#c4ytable tr:nth-child(even){background-color: #f2f2f2;}
+
+#c4ytable tr:hover {background-color: #ddd;}
+
+#c4ytable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #00A8A9;
+    color: white;
+}
+.tab-icon {
+  font-size: 18px;
+  width: 32px;
+  position: relative;
+  top: 2px;
+}
+
+
+    </style>
+    	
+
+    
+</head>
+<body>
 <div class="relative py-4 card grid grid-cols-4 w-full bg-white h-24 rounded-md  text-center" style="box-shadow: 1px 2px 4px 3px rgba(220, 220, 220);">
         <button id="open_card_popup" class="absolute -top-4 -right-4 h-8 w-8 rounded-full bg-white border border-green-400">
           <i class="fa-solid fa-pen text-green-400"></i>
@@ -110,5 +171,7 @@ setInterval(function(){updateChart()}, updateInterval);
           <img class="h-20 w-20 absolute right-4 bottom-2" src="./assets/img/can.jpg" alt="">
         </div>
       </div>
+</body>
+</html>
 
 
