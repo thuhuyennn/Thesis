@@ -15,6 +15,7 @@ require './assets/db/connect.php';
         $email = $_POST['email'];
         $gender = $_POST['gender'];
         $telephone = $_POST['telephone'];
+        $fileupload = $_POST['fileupload'];
 
 	    $sql = "INSERT INTO register_user 
         (fullname, 
@@ -25,7 +26,8 @@ require './assets/db/connect.php';
         address, 
         email, 
         gender, 
-        telephone)
+        telephone,
+        fileupload)
 		
 		VALUES ('".$fullname."', 
         '".$username."', 
@@ -35,7 +37,8 @@ require './assets/db/connect.php';
         '".$address."', 
         '".$email."', 
         '".$gender."', 
-        '".$telephone."')";
+        '".$telephone."',
+        '".$fileupload."')";
 
 		if ($conn->query($sql) === TRUE) {
 		    

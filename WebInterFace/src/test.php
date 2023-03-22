@@ -171,6 +171,22 @@ setInterval(function(){updateChart()}, updateInterval);
           <img class="h-20 w-20 absolute right-4 bottom-2" src="./assets/img/can.jpg" alt="">
         </div>
       </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  	<script>
+	$(document).ready(function(){
+		setInterval(function(){
+      $("#data_hr_avg").load("get_data_hr_avg.php");
+      $("#data_sp_avg").load("get_data_sp_avg.php");
+      $("#data_hr").load("get_data_hr.php");
+      $("#data_sp").load("get_data_sp.php");
+		}, 1000);
+	});
+	</script>
+  <div id="data_hr_avg"></div>
+  <div id="data_sp_avg"></div>
+  <div id="data_hr"></div>
+  <div id="data_sp"></div>
 </body>
 </html>
 

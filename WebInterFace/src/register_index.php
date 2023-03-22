@@ -27,284 +27,113 @@
   </head>
   <body>
     <div>
-      <div class="fixed left-0 top-0 bottom-0 right-0 bg-white">
+      <div class="">
         <div
-          class="h-1/3 w-full bg-green-500 text-white pt-4"
+          class="h-1/4 w-full bg-green-500 text pt-4"
           style="
             background-image: linear-gradient(
               to right,
-              rgb(131, 238, 131) 10%,
-              rgb(65, 192, 65) 30%,
-              rgb(12, 73, 12)
+              rgb(240 255 255) 10%,
+              rgb(245 255 250) 30%,
+              rgb(255 255 240)
             );
           "
         >
-          <p class="text-4xl font-semibold text-center">
+          <p class="text-4xl font-semibold text-black text-center">
             Welcome to the website
           </p>
           <br />
-          <p class="opacity-90 italic mx-52">
-            I believe that the greatest gift you can give your family and the
-            world is a healthy you – Joyce Meyer. Bạn nên tin rằng món quà quý
-            giá nhất ma bạn có thể tặng cho gia đình bạn va cả thế giời nay đó
-            chính là sức khỏe của bản thân bạn
-          </p>
-          <form 
-          id="form-1"
-            action="register.php"
-            method="post"
-            class="h-3/4 w-2/3 top-36 fixed grid grid-cols-3"
-            style="left: 16%"
-          >
-            <div class=" h-full w-full p-6"
-                 style="background-color: rgba(0, 0, 0, 0.8);">
-              <p class="text-4xl font-normal text-white pt-16">Don't have an account?</p>
-              <p class="opacity-60 py-8">Register to access all the features of our services.Manage your business in one place. It's free</p>
-              <ul class="flex ">
-                <li class="h-6 w-6 mx-2 rounded-full"> <i class="fa-brands fa-facebook"></i></li>
-                <li class="h-6 w-6 mx-2 rounded-full"><i class="fa-brands fa-google"></i></li>
-                <li class="h-6 w-6 mx-2 rounded-full"><i class="fa-brands fa-linkedin"></i></li>
-                <li class="h-6 w-6 mx-2 rounded-full"><i class="fa-brands fa-github"></i></li>
-              </ul>
 
+          <section class="max-w-4xl p-6 mx-auto rounded-md shadow-md dark:bg-gray-800" style="box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);background-image: linear-gradient(to right, rgb(211 211 211) 10%,rgb(220 220 220) 30%,rgb(0 255 127) );">
+    <h1 class="text-xl text-black font-bold text-black capitalize dark:text-black">Account settings</h1>
+    <form action="register.php" method="post">
+        <div>
+          <label class=" dark:text-gray-200" for="fullname" >Fullname <span class="font-bold text-red-600 ">*</span></label>
+          <input id="fullname" name="fullname" type="text" required class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+        </div>
+        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+            <div>
+                <label class="text-black dark:text-gray-200" for="username">Username <span class="font-bold text-red-600 ">*</span></label>
+                <input id="username" name="username" required type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
-            <div class="bg-gray-300 h-full w-full col-span-2">
-              <div class="text-black p-6">
-                <div class="grid grid-cols-2 gap-4 mt-4">
-                  <div>
-                    <label for="Fname"
-                      >FullName <span class="text-red-600">*</span></label
-                    ><br />
-                    <div class="flex">
-                      <div
-                        class="h-7 w-7 bg-white text-black text-md text-center"
-                      >
-                        <i class="fa-solid fa-user"></i>
-                      </div>
-                      <input
-                        name="fullname"
-                        type="text"
-                        id="Fname"
-                        placeholder=""
-                        class="border w-full"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label for="Lname"
-                      >UserName <span class="text-red-600">*</span></label
-                    ><br />
-                    <div class="flex">
-                      <div
-                        class="h-7 w-7 bg-white text-black text-md text-center"
-                      >
-                        <i class="fa-solid fa-user"></i>
-                      </div>
-                      <input
-                        type="text"
-                        name="username"
-                        id="Lname"
-                        placeholder=""
-                        class="border w-full"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4 mt-4">
-                  <div class="form-group">
-                    <label for="password">Password <span class="text-red-600">*</span></label><br />
-                    <div class="flex">
-                      <div class="h-7 w-7 bg-white text-black text-md text-center">
-                        <i class="fa-solid fa-lock"></i>
-                      </div>
-                      <input type="password" name="password" id="password" placeholder="" class="border w-full" required/>
-                    </div>
-                    <span class="form-message"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="password_confirmation">Re-Type Password
-                      <span class="text-red-600">*</span></label><br />
-                    <div class="flex">
-                      <div class="h-7 w-7 bg-white text-black text-md text-center">
-                        <i class="fa-solid fa-lock"></i>
-                      </div>
-                      <input type="password"
-                        name="repassword"
-                        id="password_confirmation"
-                        placeholder=""
-                        class="border w-full"
-                        required/>
-                    </div>
-                    <span class="form-message"></span>
-                  </div>
-                </div>
-                <div>
-                  <label for="bday">Birth Day</label><br />
-                  <div class="flex">
-                    <div
-                      class="h-7 w-7 bg-white text-black text-md text-center"
-                    >
-                      <i class="fa-solid fa-calendar-days"></i>
-                    </div>
-                    <input
-                      type="date"
-                      name="birthday"
-                      id="bday"
-                      placeholder=""
-                      class="border w-full"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label for="address">Address</label><br />
-                  <div class="flex">
-                    <div
-                      class="h-7 w-7 bg-white text-black text-md text-center"
-                    >
-                      <i class="fa-sharp fa-solid fa-location-dot"></i>
-                    </div>
-                    <input
-                      type="text"
-                      name="address"
-                      id="address"
-                      placeholder=""
-                      class="border w-full"
-                    />
-                  </div>
-                </div>
 
-                <div class="grid grid-cols-2 gap-4 py-4">
-                  <div class="pb-6">
-                    <label for="mail">Email *</label><br />
-                    <div class="flex">
-                      <div
-                        class="h-7 w-7 bg-white text-black text-md text-center"
-                      >
-                        <i class="fa-solid fa-envelope"></i>
-                      </div>
-                      <input
-                        type="email"
-                        name="email"
-                        id="mail"
-                        placeholder=""
-                        class="border w-full"
-                      />
-                    </div>
-                    <br />
-                    <label for="phone">Phone number</label><br />
-                    <div class="flex">
-                      <div
-                        class="h-7 w-7 bg-white text-black text-md text-center"
-                      >
-                        <i class="fa-solid fa-phone"></i>
-                      </div>
-                      <input
-                        type="number"
-                        name="telephone"
-                        id="phone"
-                        placeholder=""
-                        class="border w-full"
-                      />
-                    </div>
+            <div>
+                <label class="text-black dark:text-gray-200" for="email">Email Address</label>
+                <input id="email" name="email" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            </div>
+
+            <div>
+                <label class="text-black dark:text-gray-200" for="password">Password <span class="font-bold text-red-600 ">*</span></label>
+                <input id="password" required type="password" name="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            </div>
+
+            <div>
+                <label class="text-black dark:text-gray-200" for="repassword">Password Confirmation <span class="font-bold text-red-600 ">*</span></label>
+                <input id="repassword" required name="repassword" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            </div>
+
+            <div class="block pt-10 pb-2 space-x-4 text-xl">
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+            />
+            Male
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value=" female"
+              class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+            />
+            Female
+          </label>
+        </div>
+
+            <div>
+                <label class="text-black dark:text-gray-200" for="birthday">Date</label>
+                <input id="birthday" name="birthday" type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            </div>
+            <div>
+                <label class="text-black dark:text-gray-200" for="address">Address</label>
+                <input id="address"  name="address" type="text" class="block w-full px-6  mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></input>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-black">
+                Image
+              </label>
+              <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                <div class="space-y-1 text-center">
+                  <svg class="mx-auto h-12 w-12 text-black" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <div class="flex text-sm text-gray-600">
+                    <label for="fileupload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                      <span class="">Upload a file</span>
+                      <input id="fileupload" name="fileupload" type="file" class="sr-only">
+                    </label>
+                    <p class="pl-1 text-black">or drag and drop</p>
                   </div>
-                  <div>
-                    <div class="grid grid-cols-2 mt-6">
-                      <div>
-                        <input
-                          class="h-4 w-4"
-                          type="radio"
-                          name="gender"
-                          value="male"
-                          checked
-                          id=""
-                        />
-                        Male
-                      </div>
-                      <div>
-                        <input
-                          class="h-4 w-4"
-                          type="radio"
-                          name="gender"
-                          value="female"
-                          checked
-                          id=""
-                        />
-                        Female
-                      </div>
-                    </div>
-                    <button
-                      type="submit"
-                      name="btn_reg"
-                      style="
-                        box-shadow: 0 5px 4px rgba(0, 0, 0, 0.4);
-                        background-image: linear-gradient(
-                          to right,
-                          rgb(131, 238, 131) 10%,
-                          rgb(65, 192, 65) 30%,
-                          rgb(12, 73, 12)
-                        );
-                      "
-                      class="h-12 w-full mt-10"
-                    >
-                      Register
-                    </button>
-                  </div>
+                  <p class="text-xs text-black">
+                    PNG, JPG, GIF up to 10MB
+                  </p>
                 </div>
               </div>
             </div>
-          </form>
+            
         </div>
-      </div>
-    </div>
-
-    <script src="validate.js"></script>
-   <script>
-      // Select all elements with data-toggle="tooltips" in the document
-      $('[data-toggle="tooltip"]').tooltip();
-
-      // Select a specified element
-      // $('#myTooltip').tooltip();
-    
-
-    document.addEventListener('DOMContentLoaded', function () {
-      // Mong muốn của chúng ta
-      Validator({
-        form: '#form-1',
-        formGroupSelector: '.form-group',
-        errorSelector: '.form-message',
-        rules: [
-          Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
-          Validator.isEmail('#email'),
-          Validator.minLength('#password', 6),
-          Validator.isRequired('#password_confirmation'),
-          Validator.isConfirmed('#password_confirmation', function () {
-            return document.querySelector('#form-1 #password').value;
-          }, 'Mật khẩu nhập lại không chính xác')
-        ],
-        onSubmit: function (data) {
-          // Call API
-          console.log(data);
-        }
-      });
+        
+        <div class="flex mb-12">
+            <button type="submit" name="btn_reg" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-green-500 rounded-md hover:bg-gray-400 focus:outline-none focus:bg-gray-600">Register</button>
+            <a href="index.php" class="mx-8 mt-2 text-green-400"><i class="fa-solid fa-arrow-left font-bold  mx-2"></i>Quay lại</a>
+        </div>
 
 
-      Validator({
-        form: '#form-2',
-        formGroupSelector: '.form-group',
-        errorSelector: '.form-message',
-        rules: [
-          Validator.isEmail('#email'),
-          Validator.minLength('#password', 6),
-        ],
-        onSubmit: function (data) {
-          // Call API
-          console.log(data);
-        }
-      });
-    });
+    </form>
+</section>
 
-  </script>
   </body>
 </html>

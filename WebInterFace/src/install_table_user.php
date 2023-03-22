@@ -52,6 +52,7 @@
     gender enum('male', 'female'),
 	`Date` DATE NULL,
 	`Time` TIME NULL, 
+	`role` TINYINT(1) NULL DEFAULT 0, 
 
 	`TimeStamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 	)";
