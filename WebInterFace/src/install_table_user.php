@@ -39,7 +39,7 @@
 	//1         A          NM                 12-5-18    12:15:00 am
 	// sql to create table
 	$sql = "CREATE TABLE register_user (
-	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_user INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	fullname VARCHAR(255),
 	username VARCHAR(255),
     password VARCHAR(255),

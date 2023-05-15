@@ -7,9 +7,10 @@ $password = "";
 $dbname = "data_sensor";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-$username = $_SESSION['user'];
+$password = $_SESSION['user'];
+$id_user= $_SESSION['id_user'];
 // Lấy dữ liệu từ database
-$sql = "SELECT * FROM data_value WHERE username_send = '$username' ORDER BY id DESC LIMIT 10";
+$sql = "SELECT * FROM data_value WHERE username_send = '$id_user' ORDER BY id DESC LIMIT 10";
 $result = mysqli_query($conn, $sql);
 
 

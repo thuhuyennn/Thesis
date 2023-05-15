@@ -11,9 +11,9 @@ $dbname = "data_sensor";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 $username = $_SESSION['user'];
-
+$id_user= $_SESSION['id_user'];
 // Lấy dữ liệu từ database
-$sql = "SELECT * FROM data_value WHERE username_send = '$username' ORDER BY id DESC LIMIT 10";
+$sql = "SELECT * FROM data_value WHERE username_send = '$id_user' ORDER BY id DESC LIMIT 10";
 // $sql = "SELECT data.* FROM data
 //         INNER JOIN data_user ON data.usersend = data_user.username
 //         WHERE data_user.username = '$username'";
@@ -26,11 +26,21 @@ while ($row = mysqli_fetch_assoc($result)) {
     $total += $row["heartbeat"];
     $count++;
 }
-$average = $total / $count;
-$average_rounded = round($average, 1);
+if($count != 0){
+    $average = $total / $count;
+}else{
+    $average = 0;
+}
+
+$average_rounded = round($average, 0);
 
 // Hiển thị giá trị trung bình trên web
-echo " " . $average_rounded . " pbm";
+if(($average_rounded > 1)){
+    echo " " . $average_rounded . " pbm";
+}else{
+    echo "User has no data";
+}
+
 
 
 

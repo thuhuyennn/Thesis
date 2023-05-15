@@ -45,7 +45,7 @@
     <div class="mt-10">
       <form action="login.php" method="POST">
         <div class="flex flex-col mb-6">
-          <label for="username" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">E-Mail Address:</label>
+          <label for="username" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">USERNAME:</label>
           <div class="relative">
             <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
               <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">

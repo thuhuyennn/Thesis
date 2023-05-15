@@ -1,4 +1,5 @@
 <?php
+session_start();
 require './assets/db/connect.php';
 
     if(!empty($_POST['fullname']) 
@@ -15,7 +16,6 @@ require './assets/db/connect.php';
         $email = $_POST['email'];
         $gender = $_POST['gender'];
         $telephone = $_POST['telephone'];
-        $fileupload = $_POST['fileupload'];
 
 	    $sql = "INSERT INTO register_user 
         (fullname, 
@@ -26,8 +26,7 @@ require './assets/db/connect.php';
         address, 
         email, 
         gender, 
-        telephone,
-        fileupload)
+        telephone)
 		
 		VALUES ('".$fullname."', 
         '".$username."', 
@@ -37,14 +36,15 @@ require './assets/db/connect.php';
         '".$address."', 
         '".$email."', 
         '".$gender."', 
-        '".$telephone."',
-        '".$fileupload."')";
+        '".$telephone."')";
 
 		if ($conn->query($sql) === TRUE) {
 		    
 		} else {
 		    echo "Error: " . $sql . "<br>" . $conn->error;
 		}
+        session_start();
+        $_SESSION['fullname'] = $fullname;
 	}
 
 

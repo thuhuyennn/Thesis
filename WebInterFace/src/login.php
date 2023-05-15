@@ -17,6 +17,8 @@ if (mysqli_num_rows($result) == 1) {
   // Lưu thông tin người dùng vào session
   session_start();
   $_SESSION['user'] = $username;
+  $_SESSION['id_user'] = $row['id_user'];
+
   $_SESSION['username'] = $row['username'];
   $_SESSION['role'] = $row['role'];
   
